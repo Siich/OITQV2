@@ -4,6 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class OITQ2 extends JavaPlugin {
     public static OITQ2 INSTANCE;
+    
 
     public OITQ2() {
 
