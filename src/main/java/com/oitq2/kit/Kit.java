@@ -4,39 +4,30 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public final class Kit {
-
-    private List<String> abilities;
+public class Kit {
 
     public Kit(){
-        this.abilities = new ArrayList<>();
     }
 
-    public void itemLoadout(Player p){
+    public void itemLoadout(Player p, Material helmet, Material chest, Material pants, Material boots, Material weapon){ // is there a way to shortern this?
 
-        //if fighter
-        p.getInventory().setItem(EquipmentSlot.HEAD, new ItemStack(Material.IRON_HELMET));
-        p.getInventory().setItem(EquipmentSlot.CHEST, new ItemStack(Material.IRON_CHESTPLATE));
-        p.getInventory().setItem(EquipmentSlot.LEGS, new ItemStack(Material.IRON_LEGGINGS));
-        p.getInventory().setItem(EquipmentSlot.FEET, new ItemStack(Material.IRON_BOOTS));
-        //if ranger
+        //armor
+        p.getInventory().setItem(EquipmentSlot.HEAD, new ItemStack(helmet));
+        p.getInventory().setItem(EquipmentSlot.CHEST, new ItemStack(chest));
+        p.getInventory().setItem(EquipmentSlot.LEGS, new ItemStack(pants));
+        p.getInventory().setItem(EquipmentSlot.FEET, new ItemStack(boots));
+        //sword & bow
+        p.getInventory().setItem(36, new ItemStack(weapon)); // sword
+        p.getInventory().setItem(37, new ItemStack(Material.BOW));
 
     }
 
-    public void specialPotionEffect(PotionEffectType effect, int duration, int amplifier ){
-        effect.createEffect(duration, amplifier);
+    public void addEffect(Player p, PotionEffectType effect, int duration, int amplifier){
+        PotionEffect e = effect.createEffect(duration, amplifier);
+        p.addPotionEffect(e);
     }
 
-    public List<String> getAbilities() {
-        return abilities;
-    }
-
-    public void addAbilities(String ability) {
-       abilities.add(ability);
-    }
 }
