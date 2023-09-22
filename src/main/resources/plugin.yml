@@ -4,3 +4,11 @@ main: com.oitq2.OITQ2
 description: QITQ reclone
 author: [sich, lordRAINdance]
 api-version: '1.20'
+libraries:
+  - io.github.rysefoxx.inventory:RyseInventory-Plugin:1.5.7
+  - com.github.megavexnetwork.scoreboard-library:scoreboard-library-api:2.0.0-RC12
+  - com.github.megavexnetwork.scoreboard-library:scoreboard-library-implementation:2.0.0-RC12
+  - com.github.megavexnetwork.scoreboard-library:scoreboard-library-modern:2.0.0-RC12
+  - com.comphenix.protocol:ProtocolLib:5.1.0
+  - LibsDisguises:LibsDisguises:10.0.37-SNAPSHOT
+  - com.github.retrooper.packetevents:spigot:2.0.2
