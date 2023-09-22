@@ -1,0 +1,6 @@
+name: QITQv2
+version: 1.0
+main: com.oitq2.OITQ2
+description: QITQ reclone
+author: [sich, lordRAINdance]
+api-version: '1.20'
