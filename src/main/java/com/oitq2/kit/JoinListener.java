@@ -3,6 +3,7 @@ package com.oitq2.kit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.potion.PotionEffectType;
 
 public class JoinListener implements Listener {
 
@@ -10,5 +11,6 @@ public class JoinListener implements Listener {
     public void joinEvent(PlayerJoinEvent e ){
         Fighter fighterKit = new Fighter(e.getPlayer());
         fighterKit.loadout();
+
     }
 }
