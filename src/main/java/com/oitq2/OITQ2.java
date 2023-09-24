@@ -2,7 +2,9 @@ package com.oitq2;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
+import com.github.retrooper.packetevents.PacketEvents;
 import com.oitq2.game.Game;
+import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
 import io.github.rysefoxx.inventory.plugin.pagination.InventoryManager;
 import net.megavex.scoreboardlibrary.api.ScoreboardLibrary;
 import net.megavex.scoreboardlibrary.api.exception.NoPacketAdapterAvailableException;
@@ -25,7 +27,12 @@ public class OITQ2 extends JavaPlugin {
     @Override
     public void onLoad() {
         //packets
-        protocolLib = ProtocolLibrary.getProtocolManager();
+        protocolLib = ProtocolLibrary.getProtocolManager(); //don't use this
+        PacketEvents.setAPI(SpigotPacketEventsBuilder.build(this));
+        PacketEvents.getAPI().getSettings().reEncodeByDefault(false)
+            .checkForUpdates(true)
+            .bStats(true);
+        PacketEvents.getAPI().load();
     }
 
 
@@ -40,7 +47,9 @@ public class OITQ2 extends JavaPlugin {
         } catch (NoPacketAdapterAvailableException e) {
             scoreboardLibrary = new NoopScoreboardLibrary();
         }
-
+        //packets
+        //extra things to load, do so before init
+        PacketEvents.getAPI().init();
         //game
         currentGame = new Game(2);
 
@@ -52,7 +61,7 @@ public class OITQ2 extends JavaPlugin {
     }
 
     /** PUT GETTERS BELOW HERE */
-    
+
     public static OITQ2 getInstance() {
         return INSTANCE;
     }
