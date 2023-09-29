@@ -51,7 +51,7 @@ public class OITQ2 extends JavaPlugin {
         //extra things to load, do so before init
         PacketEvents.getAPI().init();
         //game
-        currentGame = new Game(2);
+        createGame();
 
     }
 
@@ -76,5 +76,23 @@ public class OITQ2 extends JavaPlugin {
 
     public ScoreboardLibrary getScoreboardLibrary() {
         return scoreboardLibrary;
+    }
+
+    public Game getGame() {
+        return currentGame;
+    }
+
+    /** Game Related Methods*/
+    public static void destroyGame() {
+        currentGame.clear();
+    }
+
+    public static void createGame() {
+        //for now hard code 2
+        if (currentGame == null) {
+            currentGame = new Game(2);
+        } else { //a game has happened
+            currentGame = currentGame.copy();
+        }
     }
 }
