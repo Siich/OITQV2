@@ -1,7 +1,7 @@
 package com.oitq2.game;
 
-import com.oitq2.game.event.GameChangeStageEvent;
-import com.oitq2.game.event.GameJoinEvent;
+import com.oitq2.event.game.GameChangeStageEvent;
+import com.oitq2.event.game.GameJoinEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -10,7 +10,6 @@ import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 

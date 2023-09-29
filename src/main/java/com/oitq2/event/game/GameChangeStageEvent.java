@@ -1,25 +1,22 @@
-package com.oitq2.game.event;
+package com.oitq2.event.game;
 
-import com.oitq2.game.Game;
-import org.bukkit.entity.Player;
+import com.oitq2.game.GameStage;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.jetbrains.annotations.NotNull;
 
-public class GameJoinEvent extends Event implements Cancellable {
+public class GameChangeStageEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
-
-    private final Player player; //player that joins
     private boolean cancel;
+    private final GameStage stage;
 
-    public GameJoinEvent(Player player) {
-        this.player = player;
-        this.cancel = false;
+    public GameChangeStageEvent(GameStage stage) {
+        this.stage = stage;
     }
 
-    public Player getPlayer() {
-        return player;
+    public GameStage getStage() {
+        return stage;
     }
 
     @Override
@@ -28,8 +25,8 @@ public class GameJoinEvent extends Event implements Cancellable {
     }
 
     @Override
-    public void setCancelled(boolean b) {
-        this.cancel = b;
+    public void setCancelled(boolean cancel) {
+        this.cancel = cancel;
     }
 
     @Override

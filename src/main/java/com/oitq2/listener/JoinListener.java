@@ -1,13 +1,11 @@
 package com.oitq2.listener;
 
 import com.oitq2.game.GameStage;
-import com.oitq2.game.event.GameJoinEvent;
+import com.oitq2.event.game.GameJoinEvent;
 import com.oitq2.kit.Fighter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.potion.PotionEffectType;
 
 
 public class JoinListener implements BaseListener {
